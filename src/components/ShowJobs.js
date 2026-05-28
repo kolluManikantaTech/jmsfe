@@ -10,13 +10,15 @@ export default function ShowJobs(){
             <table border="2px">
                 <thead>
                     <tr>
-                        <td>TITLE</td>
-                        <td>COMPANYNAME</td>
-                        <td>LOCATION</td>
-                        <td>SALARY</td>
-                        <td>JOBTYPE</td>
-                        <td>EXPERIENCE</td>
-                        <td>DESCRIPTION</td>
+                        <th>TITLE</th>
+                        <th>COMPANYNAME</th>
+                        <th>LOCATION</th>
+                        <th>SALARY</th>
+                        <th>JOBTYPE</th>
+                        <th>EXPERIENCE</th>
+                        <th>DESCRIPTION</th>
+                        <th>SKILLS</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +30,9 @@ export default function ShowJobs(){
                                 <td>{job.location}</td>
                                 <td>{job.salary}</td>
                                 <td>{job.jobType}</td>
-                                <td>{job.Experience}</td>
+                                <td>{job.experience}</td>
                                 <td>{job.description}</td>
+                                <td>{job.skills[0]},{job.skills[1]},{job.skills[2]}</td>
                             </tr>
                         ))
                     }
