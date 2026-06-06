@@ -1,10 +1,10 @@
-import {Link} from "react-router-dom";
+import {Link , useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Dashboard(){
 const [jobs, setJobs] = useState([]);
-
+const navigate = useNavigate();
     useEffect(() => {
         fetchJobs();
     }, []);
@@ -29,6 +29,9 @@ const [jobs, setJobs] = useState([]);
     };
      // DELETE FUNCTION
     const deleteJob = async (id) => {
+     // show confirm box
+    const confirmDelete = window.confirm("Are you sure you want to delete this job?");
+    if (!confirmDelete) return;
 
         try {
 
@@ -46,15 +49,21 @@ const [jobs, setJobs] = useState([]);
 
         }
     };
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("recruiterName");
+        alert("Logged out successfully");
+        navigate("/login");
+    };
 return(
 
 <div className="dashboard-container">
+<div className="top-bar">
 <h2>Dashboard</h2>
+<button className="logout-btn" onClick={handleLogout}>Logout</button>
+</div>
 <Link to="/create-job">Create Job</Link>
-<Link to="/editJob">Update Job</Link>
-<Link to="/delete">Delete Job</Link>
 <table border="2">
-
                 <thead>
                     <tr>
                         <th>TITLE</th>

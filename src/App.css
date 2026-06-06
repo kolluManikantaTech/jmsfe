@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+.top-links {
+    position: absolute;
+    top: 90px;
+    right: 80px;
+    display: flex;
+    gap: 20px;
+}
+
+.top-links a {
+    padding: 8px 12px;
+    background: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}

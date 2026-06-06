@@ -1,13 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const navigate = useNavigate();
+
+    //read recruiter name from localStorage
+    const recruiterName = localStorage.getItem("recruiterName");
 
     const handleLogin = async (e) => {
 
@@ -29,8 +32,9 @@ function Login() {
         "token",
         response.data.data.token
     );
+    localStorage.setItem("recruiterName", response.data.data.name);
 
-    alert("Login Successful");
+    alert(`Welcome ${response.data.data.name}! Login Successful`);
 
     navigate("/dashboard");
 
@@ -53,43 +57,60 @@ catch (error) {
     };
 
     return (
+    <div className="login-container">
 
-        <div className="login-container">
+        <h2>Login Page</h2>
 
-            <h2>Login Page</h2>
+        <div className="top-links">
+            <Link to="/jobseeker/register">
+                Job Seeker Register
+            </Link>
 
-            <form onSubmit={handleLogin}>
-
-                <label>Email</label>
-
-                <input
-                    type="email"
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <br /><br />
-
-                <label>Password</label>
-
-                <input
-                    type="password"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-
-                <br /><br />
-
-                <button type="submit">
-                    Login
-                </button>
-
-            </form>
-
+            <Link to="/jobseeker/login">
+                Job Seeker Login
+            </Link>
         </div>
-    );
+
+        <form onSubmit={handleLogin}>
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <br /><br />
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                placeholder="Enter Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <p>
+                Are you a new recruiter?
+                {" "}
+                <Link to="/register">
+                    Register here
+                </Link>
+            </p>
+
+            <br /><br />
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+);
 }
 
 export default Login;

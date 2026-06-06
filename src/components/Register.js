@@ -42,23 +42,24 @@ return(
 
 <div>
 
-<h2>Register Recruiter</h2>
+<h2>Register Recruiter</h2><br/>
 
-<form onSubmit={handleSubmit}>
+<center><form onSubmit={handleSubmit}>
 
-<input name="name" placeholder="Name" onChange={handleChange}/>
+<input name="name" placeholder="Name" onChange={handleChange}/><br/><br/>
 
-<input name="email" placeholder="Email" onChange={handleChange}/>
+<input name="email" placeholder="Email" onChange={handleChange}/><br/><br/>
 
-<input name="password" placeholder="Password" onChange={handleChange}/>
+<input name="password" placeholder="Password" onChange={handleChange}/><br/><br/>
 
-<input name="phone" placeholder="Phone" onChange={handleChange}/>
+<input name="phone" placeholder="Phone" onChange={handleChange}/><br/><br/>
 
-<input name="company" placeholder="Company" onChange={handleChange}/>
+<input name="company" placeholder="Company" onChange={handleChange}/><br/><br/>
 
 <button>Register</button>
 
 </form>
+</center>
 
 </div>
 

@@ -39,20 +39,15 @@ function EditJob() {
 
     }
 };
-
     const handleChange = (e) => {
-
-        setJob({
-            ...job,
-            [e.target.name]: e.target.value
+    setJob({
+        ...job,
+        [e.target.name]: e.target.value
         });
-
     };
 
     const updateJob = async (e) => {
-
         e.preventDefault();
-
         try {
 
             await API.put(`/jobs/${id}`, job);
@@ -131,7 +126,6 @@ function EditJob() {
         })
     }
 />
-
             <button type="submit">
                 Update Job
             </button>

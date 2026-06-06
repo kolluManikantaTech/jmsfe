@@ -48,8 +48,10 @@ function CreateJob() {
     };
 
     return (
-
-        <form onSubmit={handleSubmit}>
+        <div className="create-job-container">
+            <div className="job-form">
+                <form onSubmit={handleSubmit}>
+            <h1>Create New Job</h1>
 
             <input
                 name="title"
@@ -99,6 +101,8 @@ function CreateJob() {
 
         </form>
 
+            </div>
+        </div>
     );
 }
 
